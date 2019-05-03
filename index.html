@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invierno</title>
+<link rel="icon" type="image/png" href="img/icono.png" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
+<script>
+$(window).load(function(){
+    $('#page-loader').fadeOut(500);
+});
+</script>
+<style>
+  .ir-arriba {
+
+	padding:20px;
+
+	display:inline-block;
+
+	
+
+	color:#fff;
+
+	position: fixed;
+
+	font-size:20px;
+
+	bottom:20px;
+
+	right:20px;
+
+	display:none;
+
+	cursor:pointer;
+
+}
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #000000;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+.mySlides {display:none;}
+
+.Estilo1 {color: #FFFFFF}
+.Estilo3 {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.Estilo4 {
+	color: #990000;
+	font-weight: bold;
+}
+.boton{
+        font-size:10px;
+        font-family:Verdana,Helvetica;
+        font-weight:bold;
+        color:white;
+        background:#990000;
+        border:0px;
+        width:80px;
+        height:19px;
+       }
+</style>
+
+<script>
+	/* Declaracion de Variables */
+	var cont=1;
+    var nombre = document.getElementsByName("nombre");
+	var correo = document.getElementsByName("correo");
+	var rut = document.getElementsByName("rut");
+	var localidad = document.getElementsByName("localidad");
+
+	/* Validacion de formulario */
+	function validar_nombre(Objeto){
+		var nombre = Objeto.value
+	if (nombre==0){
+	alert('No escribiste tu nombre')
+			 return false;
+	} 
+	}
+	
+	/* Validacion de Correo */
+	function validar_correo(Objeto_2){
+		var correo = Objeto_2.value
+	if (correo==0){
+	alert('No escribiste tu correo electronico')
+			 return false;
+	} 
+	}
+	/* Validacion de Rut*/
+	function Valida_Rut( Objeto )
+	{	
+	var tmpstr = "";
+	var intlargo = Objeto.value
+	if (intlargo.length> 0)
+	{
+		crut = Objeto.value
+		largo = crut.length;
+		if ( largo <2 )
+		{
+			alert('rut inválido')
+			Objeto.focus()
+			return false;
+		}
+		for ( i=0; i <crut.length ; i++ )
+		if ( crut.charAt(i) != ' ' && crut.charAt(i) != '.' && crut.charAt(i) != '-' )
+		{
+			tmpstr = tmpstr + crut.charAt(i);
+		}
+		rut = tmpstr;
+		crut=tmpstr;
+		largo = crut.length;
+ 
+		if ( largo> 2 )
+			rut = crut.substring(0, largo - 1);
+		else
+			rut = crut.charAt(0);
+ 
+		dv = crut.charAt(largo-1);
+ 
+		if ( rut == null || dv == null )
+		return 0;
+ 
+		var dvr = '0';
+		suma = 0;
+		mul  = 2;
+ 
+		for (i= rut.length-1 ; i>= 0; i--)
+		{
+			suma = suma + rut.charAt(i) * mul;
+			if (mul == 7)
+				mul = 2;
+			else
+				mul++;
+		}
+ 
+		res = suma % 11;
+		if (res==1)
+			dvr = 'k';
+		else if (res==0)
+			dvr = '0';
+		else
+		{
+			dvi = 11-res;
+			dvr = dvi + "";
+		}
+ 
+		if ( dvr != dv.toLowerCase() )
+		{
+			alert('El Rut Ingreso es Invalido')
+			return false;
+		}
+		//alert('El Rut Ingresado es Correcto!')
+		
+		return true;
+	}
+}
+
+</script>
+</head>
+<body>
+    <span class="ir-arriba icon-arrow-up2"><img src='img/ico_up.png' /></span>
+<div class="container">
+<div class="btns" style="width:100%; height:50px;">
+  <a href="index.html"><img src="img/logo.png" width="150px" border="0"></a>
+
+  <div class="btn js-btn Estilo1" style="background-color: rgba(0, 8, 0, 0.4); width:25%; cursor: pointer ">
+    <div>INICIO</div>
+  </div>
+   <div class="btn js-btn Estilo1" style="background-color: rgba(0, 8, 0, 0.2); width:25%; cursor: pointer">
+    <div>CATEGORIA</div>
+  </div>
+  <div class="btn js-btn Estilo1" style="background-color: rgba(0, 8, 0, 0.4); width:25%; cursor: pointer">
+    <div>NOSOTROS</center> </div>
+  </div>
+<div class="btn js-btn Estilo1" style="background-color: rgba(0, 8, 0, 0.2); width:25%; cursor: pointer">
+    <div>UNETE</div>
+  </div>
+</div>
+ <div class="section js-section" style="line-height: 10vh; ">
+  <img class="mySlides" src="slider/2_small.jpg" style="width:100%">
+  <img class="mySlides" src="slider/slider_5.jpg" style="width:100%">
+  <img class="mySlides" src="slider/4.jpg" style="width:100%">
+</div>
+  <button class="w3-button w3-black w3-display-left" onClick="plusDivs(-1)">&#10094;</button>
+  <button class="w3-button w3-black w3-display-right" onClick="plusDivs(1)">&#10095;</button></div>
+<div class="section js-section" style="background-image:url(img/fondo_rallas.jpg);">
+<center>
+<div>
+
+<table width="80%" border="0">
+  <tr>
+    <td><div align="center"><img src="img/dama.png" width="50%"/></div></td>
+    <td><div align="center"><img src="img/caballero.png" width="50%"/></div></td>
+  </tr>
+</table>
+</center>
+</div>
+</div>
+<div class="section js-section w3-xlarge Estilo3" style="background-image:url(slider/1.jpg); line-height: 80vh; ">
+LOREM IPSUM DOLOR SIT AMET.</div>
+<div class="section js-section" style="line-height: 10vh; background-color:#333333;">
+<form name="form1" action="guardar_datos.php"  method="post">
+		 <input type="text" name="nombre" id="nombre" placeholder="NOMBRE COMPLETO" onBlur="validar_nombre(this)" required/><br> 
+				 		 <input type="text" name="correo" id="correo" placeholder="CORREO ELECTRONICO" onBlur="validar_correo(this)" style="heigth : 20px" required/><br>
+						 				 <input type="text" name="rut"  id="rut" onBlur="Valida_Rut(this)" placeholder="RUT" required/> <br> 
+ 
+		 <input type="text" name="localidad" id="localidad" placeholder="LOCALIDAD" required/><br> 
+
+	<button  type="submit" name="Submit" value="VALIDAR" onClick="datos_enviados()" class="boton"/>UNIRME</button>
+	</form>
+</div>
+
+<br><center>
+<img src="img/images.png" width="18%"/>
+</center>
+<br>
+<br>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script  src="js/index.js"></script>
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+
+
+</script>
+<script src="js/arriba.js"></script>
+</body>
+</html>

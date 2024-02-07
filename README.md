@@ -3,4 +3,4 @@ Inicio
 Categorías 
 Nosotros
 Únete
-![Banner](https://raw.githubusercontent.com/ricober/invierno_marca/master/slider/2.jpg)
+![Banner](https://raw.githubusercontent.com/ricober/Ropa-para-invierno/master/marca_de_invierno.png)
